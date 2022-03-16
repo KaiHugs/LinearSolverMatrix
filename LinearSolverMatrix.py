@@ -1,4 +1,4 @@
-#System of equation solver method - Matrix Method
+import math
 def eliminate(r1, r2, col, target=0):
     fac = (r2[col]-target) / r1[col]
     for i in range(len(r2)):
@@ -12,7 +12,7 @@ def gauss(a):
                     a[i], a[j] = a[j], a[i]
                     break
             else:
-                raise ValueError("Matrix is not invertible")
+                raise ValueError("Not Invertible")
         for j in range(i+1, len(a)):
             eliminate(a[i], a[j], i)
     for i in range(len(a)-1, -1, -1):
@@ -67,7 +67,9 @@ for i in range(len(A)):
         for k in range(len(B)):
             result[i][j] += A[i][k] * B[k][j]
 
-print(result)
+print("X = ", round(result[j][j], 2))
+print("Y = ", round(result[i][j], 2))
+
 # import numpy as np 
 # a = np.array(A)
 # b = np.array(B)
