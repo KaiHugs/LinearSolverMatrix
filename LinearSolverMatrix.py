@@ -35,26 +35,35 @@ def inverse(a):
 
 # 4x  + 3y = 20
 # -5x + 9y = 26
-R = int(input("Enter the number of rows:"))
-C = int(input("Enter the number of columns:"))
+R = int(input("Enter the number of Equations:"))
   
 # Initialize matrix
 matrix = []
-print("Enter the entries rowwise:")
+print("Enter X & Y coeffcients respectively.")
   
 # For user input
-for i in range(R):          # A for loop for row entries
+for i in range(R):          # First Equation
     a =[]
-    for j in range(C):      # A for loop for column entries
-         a.append(int(input()))
+    for j in range(R): 
+         a.append(float(input("Enter First: ")))
     matrix.append(a)
+    break
 Bmatrix = []
+for i in range(R):          # Second Equation
+    a =[]
+    for j in range(R):  
+         a.append(float(input("Enter Second: ")))
+    matrix.append(a)
+    break
+Bmatrix = []
+
+
 for i in range(R): # A for loop for row entries
-    value = int(input("Equation value C:"))
+    value = float(input("Enter the value of the Equations: "))
     Bmatrix.append([value])
 
-m = matrix
-A = inverse(m)
+M = matrix
+A = inverse(M)
 B = Bmatrix
 
 result = [[0, 0],[0, 0]]
@@ -67,8 +76,8 @@ for i in range(len(A)):
         for k in range(len(B)):
             result[i][j] += A[i][k] * B[k][j]
 
-print("X = ", round(result[j][j], 2))
-print("Y = ", round(result[i][j], 2))
+print("X = ", round(result[j][j], 3))
+print("Y = ", round(result[i][j], 3))
 
 # import numpy as np 
 # a = np.array(A)
